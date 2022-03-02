@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>index</title>
     <body>
       <div id="root"></div>
     </body>
@@ -94,11 +94,29 @@
           </div>
         );
       }
+      function Btn({text, apple, strawberry}) {
+        console.log(text);
+        return (
+          <div>
+            <button
+              style={{
+                backgroundColor: "tomato",
+                color: "white",
+                borderRadius: "10px",
+                border: 0,
+                padding: "10px",
+                fontSize: apple ? 20 : 15,
+              }}
+            >
+              {text}
+            </button>
+          </div>
+        );
+      }
       function App() {
         const [index, setIndex] = React.useState("xx");
         const onSelect = (e) => {
           setIndex(e.target.value);
-          
         };
         console.log("render w/", index);
         return (
@@ -113,6 +131,8 @@
             {index === "xx" ? "원하시는 변환기를 선택해주세요" : null}
             {index === "0" ? <MinutesToHours /> : null}
             {index === "1" ? <KmToMiles /> : null}
+            <Btn text = "Save Changes" apple = {true} strawberry ={7}/>
+            <Btn text = "Continues" apple = {false} strawberry ={5}/>
           </div>
         );
       }
